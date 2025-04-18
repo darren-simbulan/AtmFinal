@@ -2,6 +2,51 @@
     ViewData["Title"] = "Balance Inquiry";
 }
 
-<h3>Your Current Balance:</h3>
-<p><strong>₱@ViewBag.Balance</strong></p>
-<a href="@Url.Action("Dashboard", "ATM")" class="btn btn-secondary">Back to Dashboard</a>
+<style>
+    body {
+        background-color: #f1f8f4;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .balance-card {
+        max-width: 500px;
+        margin: 80px auto;
+        padding: 30px;
+        border-radius: 15px;
+        background-color: white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+        .balance-card h3 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+
+    .balance-amount {
+        font-size: 36px;
+        font-weight: bold;
+        color: #1b5e20;
+        margin-bottom: 30px;
+    }
+
+    .btn-back {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+        .btn-back:hover {
+            background-color: #45a049;
+        }
+</style>
+
+<div class="balance-card">
+    <h3>Your Current Balance</h3>
+    <div class="balance-amount">₱@ViewBag.Balance</div>
+    <a href="@Url.Action("Dashboard", "ATM")" class="btn-back">Back to Dashboard</a>
+</div>

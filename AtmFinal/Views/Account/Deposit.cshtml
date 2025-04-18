@@ -2,17 +2,101 @@
     ViewData["Title"] = "Deposit";
 }
 
-<h2>Deposit</h2>
+<style>
+    body {
+        background-color: #f1f8f4;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-<form method="post">
-    <label>Amount to deposit:</label><br />
-    <input type="number" name="amount" step="0.01" required /><br /><br />
-    <button type="submit">Deposit</button>
-    <a href="@Url.Action("Dashboard", "ATM")" class="btn btn-secondary">CANCEL</a>
+    .deposit-card {
+        max-width: 500px;
+        margin: 80px auto;
+        padding: 30px;
+        border-radius: 15px;
+        background-color: white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
 
-</form>
+        .deposit-card h2 {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-@if (ViewBag.Message != null)
-{
-    <p style="color:green;">@ViewBag.Message</p>
-}
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .btn-submit {
+        width: 100%;
+        background-color: #43a047;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+    }
+
+        .btn-submit:hover {
+            background-color: #388e3c;
+        }
+
+    .btn-cancel {
+        display: inline-block;
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+        background-color: #b0bec5;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+
+        .btn-cancel:hover {
+            background-color: #90a4ae;
+        }
+
+    .message-success {
+        margin-top: 20px;
+        color: green;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+
+<div class="deposit-card">
+    <h2>Deposit</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="amount">Amount to deposit:</label>
+            <input type="number" name="amount" step="0.01" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Deposit</button>
+        <a href="@Url.Action("Dashboard", "ATM")" class="btn-cancel">Cancel</a>
+    </form>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="message-success">@ViewBag.Message</div>
+    }
+</div>

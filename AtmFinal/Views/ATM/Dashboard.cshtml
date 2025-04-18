@@ -1,58 +1,100 @@
-﻿
-
-@using Microsoft.AspNetCore.Http
-
+﻿@using Microsoft.AspNetCore.Http
 @{
     ViewData["Title"] = "Dashboard";
-}
-@{
     var fullname = Context.Session.GetString("fullName");
+    Layout = "~/Views/Shared/_Layout.cshtml"; // optional kung may layout ka
 }
 
+<!-- Custom Landbank Style -->
+<style>
+    body {
+        background-color: #f4f9f4;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-<div class="container mt-5">
-    <h2>Welcome, @Model.AccountName!</h2>
-    <a asp-controller="ATM" asp-action="Logout">Logout</a>
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+    }
 
+    .card:hover {
+        transform: translateY(-5px);
+    }
 
+    .btn-landbank {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
 
-    <div class="row mt-4">
+    .btn-landbank:hover {
+        background-color: #45a049;
+        color: #fff;
+    }
+
+    .header {
+        background-color: #2e7d32;
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    .logout-link {
+        float: right;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .logout-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="header d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Welcome, @Model.AccountName!</h2>
+        <a asp-controller="ATM" asp-action="Logout" class="logout-link">Logout</a>
+    </div>
+
+    <div class="row">
         <div class="col-md-3">
-            <div class="card text-white bg-primary mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Balance Inquiry</h5>
+            <div class="card border-success">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-success">Balance Inquiry</h5>
                     <p class="card-text">Check your current balance.</p>
-                    <a href="@Url.Action("BalanceIquiry", "Account")" class="btn btn-light">View</a>
+                    <a href="@Url.Action("BalanceIquiry", "Account")" class="btn btn-landbank">View</a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-success mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Withdraw Cash</h5>
+            <div class="card border-primary">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Withdraw Cash</h5>
                     <p class="card-text">Take money out of your account.</p>
-                    <a href="@Url.Action("Withdraw", "Account")" class="btn btn-light">Withdraw</a>
+                    <a href="@Url.Action("Withdraw", "Account")" class="btn btn-landbank">Withdraw</a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-warning mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Deposit</h5>
+            <div class="card border-warning">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-warning">Deposit</h5>
                     <p class="card-text">Add money to your account.</p>
-                    <a href="@Url.Action("Deposit", "Account")" class="btn btn-light">Deposit</a>
+                    <a href="@Url.Action("Deposit", "Account")" class="btn btn-landbank">Deposit</a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-danger mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Fund Transfer</h5>
+            <div class="card border-danger">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-danger">Fund Transfer</h5>
                     <p class="card-text">Send funds to another account.</p>
-                    <a href="@Url.Action("Transfer", "Account")" class="btn btn-light">Transfer</a>
+                    <a href="@Url.Action("Transfer", "Account")" class="btn btn-landbank">Transfer</a>
                 </div>
             </div>
         </div>
