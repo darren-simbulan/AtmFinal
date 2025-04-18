@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Balance Inquiry";
+}
+
+<h3>Your Current Balance:</h3>
+<p><strong>₱@ViewBag.Balance</strong></p>
+<a href="@Url.Action("Dashboard", "ATM")" class="btn btn-secondary">Back to Dashboard</a>

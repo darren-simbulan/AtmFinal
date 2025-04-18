@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+@{
+    var fullname = Context.Session.GetString("fullName");
+}
+
+<div class="container mt-5">
+    <h2>Welcome, @Model.AccountName!</h2>
+
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Balance Inquiry</h5>
+                    <p class="card-text">Check your current balance.</p>
+                    <a href="@Url.Action("BalanceIquiry", "Account")" class="btn btn-light">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Withdraw Cash</h5>
+                    <p class="card-text">Take money out of your account.</p>
+                    <a href="@Url.Action("Withdraw", "Account")" class="btn btn-light">Withdraw</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Deposit</h5>
+                    <p class="card-text">Add money to your account.</p>
+                    <a href="@Url.Action("Deposit", "Account")" class="btn btn-light">Deposit</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Fund Transfer</h5>
+                    <p class="card-text">Send funds to another account.</p>
+                    <a href="@Url.Action("Transfer", "Account")" class="btn btn-light">Transfer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>ATM Login</h2>
+
+@using (Html.BeginForm("Login", "ATM", FormMethod.Post))
+{
+    <p>Card Number: @Html.TextBox("cardNumber")</p>
+    <p>PIN: @Html.Password("pin")</p>
+    <p><input type="submit" value="Login" /></p>
+}
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
