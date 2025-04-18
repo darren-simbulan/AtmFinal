@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Withdraw";
+}
+
+<h2>Withdraw</h2>
+
+<form method="post">
+    <label>Amount to withdraw:</label><br />
+    <input type="number" name="amount" step="0.01" required /><br /><br />
+	<button type="submit">Withdraw</button>
+    <a href="@Url.Action("Dashboard", "ATM")" class="btn btn-secondary">CANCEL</a>
+
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p style="color:green;">@ViewBag.Message</p>
+}

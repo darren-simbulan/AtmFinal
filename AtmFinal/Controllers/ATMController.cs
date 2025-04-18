@@ -27,6 +27,7 @@ namespace AtmFinal.Controllers
             {
                 HttpContext.Session.SetString("UserId", user.Id.ToString());
                 HttpContext.Session.SetString("balance", user.Balance.ToString());
+                HttpContext.Session.SetString("account_number", user.CardNumber.ToString());
                 TempData["User"] = Newtonsoft.Json.JsonConvert.SerializeObject(user);
                 return RedirectToAction("Dashboard");
             }
@@ -58,5 +59,13 @@ namespace AtmFinal.Controllers
 
             return RedirectToAction("Dashboard");
         }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "ATM");
+
+        }
+
     }
 }

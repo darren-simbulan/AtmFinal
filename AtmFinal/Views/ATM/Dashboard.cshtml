@@ -1,4 +1,6 @@
-﻿@using Microsoft.AspNetCore.Http
+﻿
+
+@using Microsoft.AspNetCore.Http
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -7,8 +9,11 @@
     var fullname = Context.Session.GetString("fullName");
 }
 
+
 <div class="container mt-5">
     <h2>Welcome, @Model.AccountName!</h2>
+    <a asp-controller="ATM" asp-action="Logout">Logout</a>
+
 
 
     <div class="row mt-4">
